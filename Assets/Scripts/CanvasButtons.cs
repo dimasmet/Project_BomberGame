@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CanvasButtons : MonoBehaviour
 {
-    public bool StartStatus = false;
+    /*Тут работа с кенвасом*/
+
+    public bool StartStatus = false;  // проверка нажатия кнопки старт
     public void StartGame()
     {
-        Camera.main.transform.position = new Vector3(5f, 7f, 0);
-        StartStatus = true;
+        Camera.main.transform.position = new Vector3(5f, 7f, 0); // плохая попытка смены положения камеры :)
+        StartStatus = true;// 
     }
 
 }

@@ -8,14 +8,7 @@ public class RotateCamera : MonoBehaviour
     public float Speed_Cam = 5f;
     //int k = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-    }
-
-    // Update is called once per frame
-    void Update()
+    void Update() /*Вращение камеры с остановкой*/
     {
         //if (Canvas.GetComponent<CanvasButtons>().StartStatus == false)
         //{
