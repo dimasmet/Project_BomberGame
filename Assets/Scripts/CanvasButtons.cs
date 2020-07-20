@@ -10,7 +10,7 @@ public class CanvasButtons : MonoBehaviour,IPointerDownHandler
     bool StartStatus = false;  // проверка нажатия кнопки старт
     public new GameObject camera;
     public GameObject canvas;
-    bool isPaused = false;
+    bool isPaused = false; //переменная состояния true - пауза, false - ход игры
     
     public void OnPointerDown(PointerEventData eventData) //метод отслеживающий нажатие кнопки
 
@@ -21,7 +21,8 @@ public class CanvasButtons : MonoBehaviour,IPointerDownHandler
             canvas.GetComponent<Canvas>().enabled = false;
             isPaused = false;
         }
-        camera.transform.position = new Vector3(0, 8.83f, -5.83f);//перемещение камеры 
+        camera.transform.position = new Vector3(0, 8.9f, -3f);//перемещение камеры 
+        camera.transform.eulerAngles = new Vector3(67.694f, 0, 0);
         camera.GetComponent<Camera>().fieldOfView = 42.46f;//изменение компонента поле зрения камеры
         canvas.GetComponent<Canvas>().enabled = false;
         

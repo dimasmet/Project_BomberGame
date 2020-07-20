@@ -17,7 +17,7 @@ public class Bombs : MonoBehaviour
         bombs[0].GetComponent<SphereCollider>().isTrigger = false;
     }
 
-    IEnumerator ExplosionBomb(GameObject b) // куронтина с таймиром на 3 секунды, получает на вход последнюю бомбу
+    IEnumerator ExplosionBomb(GameObject b) // корутина с таймиром на 3 секунды, получает на вход последнюю бомбу
     {
         yield return new WaitForSeconds(3f);
         ExWaveList.Add(Instantiate(ExWave, b.transform.position, Quaternion.Euler(0, 0, 90)));
