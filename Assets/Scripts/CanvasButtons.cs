@@ -7,12 +7,12 @@ public class CanvasButtons : MonoBehaviour,IPointerDownHandler
 {
     /*Тут работа с кенвасом*/
 
-    public bool StartStatus = false;  // проверка нажатия кнопки старт
+    bool StartStatus = false;  // проверка нажатия кнопки старт
     public new GameObject camera;
     public GameObject canvas;
     bool isPaused = false;
     
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData) //метод отслеживающий нажатие кнопки
 
     {
         if (isPaused == true)
@@ -21,21 +21,20 @@ public class CanvasButtons : MonoBehaviour,IPointerDownHandler
             canvas.GetComponent<Canvas>().enabled = false;
             isPaused = false;
         }
-        camera.transform.position = new Vector3(0, 8.83f, -5.83f);
-        camera.GetComponent<Camera>().fieldOfView = 42.46f;
+        camera.transform.position = new Vector3(0, 8.83f, -5.83f);//перемещение камеры 
+        camera.GetComponent<Camera>().fieldOfView = 42.46f;//изменение компонента поле зрения камеры
         canvas.GetComponent<Canvas>().enabled = false;
         
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))//обработка нажатия клавиши Esc
         {
-            print("pause");
             if (isPaused == false)
             {
                 Debug.Log("pause");
-                Time.timeScale = 0;
+                Time.timeScale = 0;//остановка хода времени
                 canvas.GetComponent<Canvas>().enabled = true;
                 isPaused = true;
 
@@ -43,7 +42,7 @@ public class CanvasButtons : MonoBehaviour,IPointerDownHandler
             else
             {
                 Debug.Log("unpause");
-                Time.timeScale = 1;
+                Time.timeScale = 1;//возобновление хода времени
                 canvas.GetComponent<Canvas>().enabled = false;
                 isPaused = false;
 
