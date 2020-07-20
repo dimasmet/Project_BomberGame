@@ -1,17 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScripts : MonoBehaviour
 {
     private int health = 3; // количество жизней
     public float MoveSpeed = 2f;
-    //public GameObject objHealth; // объект линии здоровья
+    public Text TextHealth; // текстовое поле здоровья
+    public Text TextWinLoss; // текст с информацией о победе или проигрыше
+
+    void Start()
+    {
+        TextWinLoss.text = ""; // Изначально текст пустой, дабы не отображался
+    }
 
     public void DecreaseHealth() // функция вычита здоровья, вызываемая при пересечении с волной в Скрипте Wave
     {
-        health = health - 1;
+        health = health - 1; //
         print(health);
+        UpdateText(); // функция обновление текста
     }
 
 
@@ -28,8 +36,19 @@ public class PlayerScripts : MonoBehaviour
             print("Игрок подобрал бонус, СКОРОСТЬ увеличена!"); 
             other.gameObject.SetActive(false); //   выключение бонуса    
             MoveSpeed += 0.5f; // Увеличение скорости
-            print(MoveSpeed);
+            print(MoveSpeed);            
+        }
+    }
 
+    public void UpdateText() // функция обновление текста
+    {
+        TextHealth.text = "" + health.ToString() + " HP"; // вывод количества оставшихся жизней
+
+        if (health == 0)  // если 0, то вывод сообщения о проигрыше
+        {
+            print("Вы проиграли!!!");
+            TextWinLoss.text = "you are blown !!!";
+            Time.timeScale = 0; // остановка времени
         }
     }
 

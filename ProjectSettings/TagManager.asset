@@ -8,6 +8,9 @@ TagManager:
   - LightBlock
   - Bonus
   - BonusSpeed
+  - Tx_NameGame
+  - Buttons
+  - WinLossTx
   layers:
   - Default
   - TransparentFX
