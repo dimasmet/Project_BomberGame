@@ -7,20 +7,20 @@ public class Wave : MonoBehaviour
     /* Скрипт для работы с взрывной волной */
 
     public GameObject player;  // добавление ссылки на игрока, для возможности обратиться к его свойствам
+    public GameObject objHealth;
+
     Color color;
     void OnTriggerEnter(Collider other) // функция определения пересечения тригером
     {
         if (other.gameObject.CompareTag("Player")) // определения игрока по тегу
         {
             print("Игрок коснулся волны");
-            player.GetComponent<PlayerScripts>().health -= 1; // уменьшения значения переменной в скрипте игрока
-            player.GetComponent<PlayerScripts>().OutputHealth(); // вызов функции ввыода в консоль
+            other.gameObject.GetComponent<PlayerScripts>().DecreaseHealth(); // уменьшения значения переменной в скрипте игрока           
             foreach (Transform child in transform)
             {
                // child.GetComponent<MeshRenderer> ().material.color = new Color ()
             }
-            //player.GetComponent<PlayerScripts>().ColorHealth(); // Смена цвета у линии здоровья
-
+            //objHealth.GetComponent<MeshRenderer>().sharedMaterial.color = new Color(0f, 0f, 0f);
 
         }
 

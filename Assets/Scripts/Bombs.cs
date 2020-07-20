@@ -19,7 +19,7 @@ public class Bombs : MonoBehaviour
 
     IEnumerator ExplosionBomb(GameObject b) // корутина с таймиром на 3 секунды, получает на вход последнюю бомбу
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         ExWaveList.Add(Instantiate(ExWave, b.transform.position, Quaternion.Euler(0, 0, 90)));
         ExWaveList.Add(Instantiate(ExWave, b.transform.position, Quaternion.Euler(90, 0, 0)));
         ExWaveList[ExWaveList.Count - 1].transform.localScale = new Vector3(0.3f, 1.5f, 0.3f);

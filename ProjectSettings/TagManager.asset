@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wave
   - LightBlock
+  - Bonus
+  - BonusSpeed
   layers:
   - Default
   - TransparentFX

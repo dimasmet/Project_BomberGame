@@ -108,3 +108,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1717546248630256077, guid: 579c4aa23e557a34180a1f680e251505, type: 3}
+  objHealth: {fileID: 5731609031931682643, guid: 014ee77a5fed52d4292759f61927d085,
+    type: 3}
