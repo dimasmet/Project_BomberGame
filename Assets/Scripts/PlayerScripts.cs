@@ -9,6 +9,10 @@ public class PlayerScripts : MonoBehaviour
     public float MoveSpeed = 2f;
     public Text TextHealth; // текстовое поле здоровья
     public Text TextWinLoss; // текст с информацией о победе или проигрыше
+    public Text TextSpeed; // текст с информацией о скорости
+    public Text TextRadius;
+
+    public GameObject ControlerBombs;
 
     void Start()
     {
@@ -36,8 +40,22 @@ public class PlayerScripts : MonoBehaviour
             print("Игрок подобрал бонус, СКОРОСТЬ увеличена!"); 
             other.gameObject.SetActive(false); //   выключение бонуса    
             MoveSpeed += 0.5f; // Увеличение скорости
-            print(MoveSpeed);            
+            print(MoveSpeed);
+            TextSpeed.text = "= " + MoveSpeed.ToString();
         }
+
+        if (other.gameObject.CompareTag("BonusWave")) // определения бонуса 
+        {
+            print("Игрок подобрал бонус, ВОЛНА увеличена!");
+            other.gameObject.SetActive(false); //   выключение бонуса
+
+            ControlerBombs.gameObject.GetComponent<Bombs>().WaveLength += 0.3f;
+            //MoveSpeed += 0.5f; // Увеличение скорости
+            //print(MoveSpeed);
+            //TextSpeed.text = "= " + MoveSpeed.ToString();
+            TextRadius.text = "= " + ControlerBombs.gameObject.GetComponent<Bombs>().WaveLength.ToString();
+        }
+
     }
 
     public void UpdateText() // функция обновление текста
@@ -47,7 +65,7 @@ public class PlayerScripts : MonoBehaviour
         if (health == 0)  // если 0, то вывод сообщения о проигрыше
         {
             print("Вы проиграли!!!");
-            TextWinLoss.text = "you are blown !!!";
+            TextWinLoss.text = "player 1 are blown !!!";
             Time.timeScale = 0; // остановка времени
         }
     }
