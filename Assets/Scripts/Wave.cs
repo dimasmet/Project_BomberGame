@@ -8,11 +8,32 @@ public class Wave : MonoBehaviour
 
     public GameObject player;  // добавление ссылки на игрока, для возможности обратиться к его свойствам
     public GameObject objHealth;
-    float dist = 1.5f;
+    public float dist = 0.5f;
 
     Color color;
     void OnTriggerEnter(Collider other) // функция определения пересечения тригером
     {
+        if (other.gameObject.CompareTag("wall"))
+        {
+
+            if (dist >= Vector3.Distance(transform.position, other.gameObject.transform.position))
+            {
+                dist = Vector3.Distance(transform.position, other.gameObject.transform.position); //+ 0.15f;
+            }
+            GetComponent<Transform>().localScale = new Vector3(0.3f, dist, 0.3f);
+            print("Волна пересеклась со стеной, дистанция " + dist);
+        }
+        if (other.gameObject.CompareTag("LightBlock"))
+        {
+            if (dist >= Vector3.Distance(transform.position, other.gameObject.transform.position))
+            {
+                dist = Vector3.Distance(transform.position, other.gameObject.transform.position); //+ 0.15f;
+            }
+            GetComponent<Transform>().localScale = new Vector3(0.3f, dist, 0.3f);
+            print("Волна пересеклась с блоком, дистанция " + dist);
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.CompareTag("Player")) // определения игрока по тегу
         {
             print("Игрок коснулся волны");
