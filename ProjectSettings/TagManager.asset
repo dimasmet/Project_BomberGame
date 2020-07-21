@@ -12,6 +12,7 @@ TagManager:
   - Buttons
   - WinLossTx
   - wall
+  - BonusWave
   layers:
   - Default
   - TransparentFX
