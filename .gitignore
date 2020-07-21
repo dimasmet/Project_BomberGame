@@ -72,3 +72,13 @@ crashlytics-build.properties
 # Exceptions
 !*.dll
 !*.obj
+.vs/Project_BomberGame/v15/.suo
+.vs/Project_BomberGame/v15/Server/sqlite3/storage.ide-shm
+.vs/Project_BomberGame/v15/Server/sqlite3/storage.ide-wal
+Assets/Scenes/Bomber Game.unity
+Assets/Scripts/CanvasButtons.cs
+Library/ArtifactDB
+Library/CurrentLayout-default.dwlt
+Library/SourceAssetDB
+Library/StateCache/Hierarchy/2084b0-mainStage.json
+Library/StateCache/SceneView/af77f3-mainStage.json
