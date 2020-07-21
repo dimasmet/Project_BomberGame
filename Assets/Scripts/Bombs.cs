@@ -21,7 +21,7 @@ public class Bombs : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         ExWaveList.Add(Instantiate(ExWave, b.transform.position, Quaternion.Euler(0, 0, 90)));
-        ExWaveList.Add(Instantiate(ExWave, b.transform.position, Quaternion.Euler(90, 0, 0)));
+        ExWaveList.Add(Instantiate(ExWave, b.transform.position, Quaternion.Euler(90, 0, 0)));       
         ExWaveList[ExWaveList.Count - 1].transform.localScale = new Vector3(0.3f, 1.5f, 0.3f);
         ExWaveList[ExWaveList.Count - 2].transform.localScale = new Vector3(0.3f, 1.5f, 0.3f);
 

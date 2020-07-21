@@ -11,6 +11,7 @@ TagManager:
   - Tx_NameGame
   - Buttons
   - WinLossTx
+  - wall
   layers:
   - Default
   - TransparentFX
