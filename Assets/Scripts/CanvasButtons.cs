@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CanvasButtons : MonoBehaviour,IPointerDownHandler
+public class CanvasButtons : MonoBehaviour//,IPointerDownHandler
 {
     /*Тут работа с кенвасом*/
 
@@ -19,15 +19,13 @@ public class CanvasButtons : MonoBehaviour,IPointerDownHandler
         Time.timeScale = 0; // установка времени ноль при запуске игры
     }
 
-    public void OnPointerDown(PointerEventData eventData) //метод отслеживающий нажатие кнопки
-
+    //public void OnPointerDown(PointerEventData eventData) //метод отслеживающий нажатие кнопки
+    public void ClickStart()
     {
         Time.timeScale = 1; // запуск времени при нажатии
 
         if (isPaused == true)
         {
-            //Time.timeScale = 1;
-            canvas.GetComponent<Canvas>().enabled = false;
             isPaused = false;
         }
         camera.transform.position = new Vector3(0, 8.9f, -3f);//перемещение камеры 
@@ -42,7 +40,6 @@ public class CanvasButtons : MonoBehaviour,IPointerDownHandler
                 childs.gameObject.SetActive(false); // ОТКЛЮЧЕНИЕ при начале игры
             }
         }
-
     }
 
     void Update()
@@ -78,6 +75,14 @@ public class CanvasButtons : MonoBehaviour,IPointerDownHandler
                 Time.timeScale = 1;//возобновление хода времени
                 //canvas.GetComponent<Canvas>().enabled = false;
                 isPaused = false;
+
+                foreach (Transform childs in canvas.transform)  // Поиск нужных дочерних элементов от объекта canvas с последующим ОТКЛЮЧЕНИЕМ
+                {
+                    if (childs.gameObject.CompareTag("Tx_NameGame") || childs.gameObject.CompareTag("Buttons")) // поиск по тегу
+                    {
+                        childs.gameObject.SetActive(false); // ОТКЛЮЧЕНИЕ элементов 
+                    }
+                }
 
             }
         }
