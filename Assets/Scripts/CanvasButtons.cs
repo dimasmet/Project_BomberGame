@@ -44,12 +44,6 @@ public class CanvasButtons : MonoBehaviour//,IPointerDownHandler
 
     void Update()
     {       
-        /*ВНИМАНИЕ!  :-) я тута поломал твой искейп маленько
-         Почему-то он перестал улавливать нажатия, после применения цикла foreach, 
-         если захочешь вернуть как было, то просто закоменть два цикла foreach и раскоменть свою строчку с ...enabled = false
-         */
-
-
 
         if (Input.GetKeyDown(KeyCode.Escape))//обработка нажатия клавиши Esc
         {            
