@@ -46,10 +46,25 @@ public class Wave : MonoBehaviour
 
         }
 
-        if (other.gameObject.CompareTag("LightBlock")) // поиск деревянных боксов
+        if (other.gameObject.CompareTag("wall"))
         {
-            print("Волна пересеклась с блоком");
-            Destroy(other.gameObject);// уничтожение бокса
+            
+            if (dist >= Vector3.Distance(transform.position, other.gameObject.transform.position))
+            {
+                dist = Vector3.Distance(transform.position, other.gameObject.transform.position) + 0.15f;
+            }
+            GetComponent<Transform>().localScale = new Vector3(0.3f, dist, 0.3f);
+            print("Волна пересеклась со стеной, дистанция " + dist);
+        }
+        if (other.gameObject.CompareTag("LightBlock"))
+        {
+            if (dist >= Vector3.Distance(transform.position, other.gameObject.transform.position))
+            {
+                dist = Vector3.Distance(transform.position, other.gameObject.transform.position) + 0.15f;
+            }
+            GetComponent<Transform>().localScale = new Vector3(0.3f, dist, 0.3f);
+            print("Волна пересеклась с блоком, дистанция " + dist);
+            Destroy(other.gameObject);
         }
 
     }
